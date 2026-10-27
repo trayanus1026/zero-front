@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Origin — Start From the Work</title>
+    <meta
+      name="description"
+      content="An interactive story about learning backwards from real jobs: build, get seen, get hired."
+    />
+    <meta name="theme-color" content="#173f33" />
+    <meta name="color-scheme" content="light only" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Origin — Start From the Work" />
+    <meta
+      property="og:description"
+      content="An interactive story about learning backwards from real jobs: build, get seen, get hired."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Critical paint: the gradient must be on screen before any JS runs so
+         there is never a white flash. Colors mirror stage 1's backdrop
+         (src/content.js -> stages[0].palette); keep them in sync. */
+      html, body { height: 100%; margin: 0; }
+      body { overflow: hidden; background: #173f33; }
+      #bg-gradient {
+        position: fixed; inset: 0; z-index: 0; pointer-events: none;
+        background-color: #173f33;
+        background-image: radial-gradient(
+          ellipse 127vw 143vh at 50% 130%,
+          #d8f5ea 16%, #4a917c 55%, #173f33 100%
+        );
+      }
+    </style>
+  </head>
+  <body class="is-loading">
+    <div id="bg-gradient" aria-hidden="true"></div>
+    <canvas id="webgl" role="img" aria-label="Interactive 3D story"></canvas>
+    <div id="ui" role="region" aria-label="Experience interface"></div>
+    <noscript>
+      <p style="position:fixed;inset:auto 0 40px;text-align:center;color:#fff;font-family:sans-serif">
+        This experience needs JavaScript enabled.
+      </p>
+    </noscript>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
